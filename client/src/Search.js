@@ -4,7 +4,7 @@ const Search = ({ onSearchType, onSearchClick }) =>
 <div>
   <input
     onChange={e => onSearchType(e.target.value)}
-    placeholder="Search titles and tags..."
+    placeholder="Search..."
   />
   <button onClick={onSearchClick}>Search</button>
 </div>

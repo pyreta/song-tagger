@@ -138,6 +138,7 @@ class App extends Component {
 
   onSearchType(search) {
     this.setState({ page: 1, search });
+    if (search === '') this.getSongs({})
   }
 
   onSearchClick() {
@@ -179,10 +180,10 @@ class App extends Component {
         <br />
 
       <div style={{display: 'flex'}}>
-        <div style={{background: 'rgb(33, 37, 43)', color: 'rgb(152, 194, 121)', height: 'calc(100vh - 170px)', overflow: 'auto', flex: '100%', margin: '10px', border: '1px solid black'}}>
+        <div className="song-list-container list-container">
           <SongList songs={Object.values(this.state.songs)} songProps={this.songProps()} />
         </div>
-          <div style={{background: 'rgb(33, 37, 43)', color: 'rgb(208, 154, 102)', height: 'calc(100vh - 170px)', overflow: 'auto', flex: '100%', margin: '10px', marginLeft: '0', border: '1px solid black'}}>
+          <div className="export-list-container list-container">
             <ExportList
               songs={this.songsToExport()}
               onDrop={this.onDrop.bind(this)}
@@ -201,7 +202,7 @@ class App extends Component {
               />
           </div>
           <div style={{flex: '100%'}}>
-            <Button onButtonClick={this.exportCsv.bind(this)} disabled={!this.songsToExport().length} text="export"/>
+            <button onClick={this.exportCsv.bind(this)} disabled={!this.songsToExport().length}>Export CSV</button>
           </div>
         </div>
       </div>

@@ -46,8 +46,12 @@ class EditSong extends React.Component {
           value={this.state.tags}
           onChange={this.changeTags.bind(this)}
         />
-        <button onClick={() => setToEdit(null)}>cancel</button>
-        <button onClick={() => update(song.id, this.state)}>update</button>
+      <div style={{display: 'flex', paddingTop: '5px'}}>
+        <Button onButtonClick={() => setToEdit(null)} text="Cancel"/>
+        <div style={{paddingLeft: '5px'}}>
+          <Button onButtonClick={() => update(song.id, this.state)} text="Update"/>
+        </div>
+      </div>
       </div>
     )
   }
