@@ -1,0 +1,96 @@
+body {
+  margin: 0;
+  padding: 10px;
+  font-family: sans-serif;
+  background-color: rgb(40, 44, 52);
+  /*color: rgb(97, 174, 238);*/
+  /*color: rgb(222, 108, 117);*/
+  color: rgb(208, 154, 102);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/*li {
+  padding-left: 1em;
+  text-indent: -.7em;
+}*/
+
+/*li::before {
+  content: "♫";
+  color: red;
+}*/
+
+/*html, body, section, article, h1, h2, p, a, input {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  color: inherit;
+  background: transparent;
+}*/
+html, header, nav, h1, a,
+ul, li, strong, main, button, i,
+section, img, div, h2, p, form,
+fieldset, label, input, textarea,
+span, article, footer, time, small, select {
+ margin: 0;
+ padding: 0;
+ border: 0;
+ outline: 0;
+ font: inherit;
+ color: inherit;
+ text-align: inherit;
+ text-decoration: inherit;
+ vertical-align: inherit;
+ box-sizing: inherit;
+ background: transparent;
+ /*font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+   Helvetica, Arial, "Lucida Grande", sans-serif;
+ font-weight: 700;*/
+ -webkit-font-smoothing: antialiased;
+}
+
+ul {
+ list-style: none;
+}
+
+img {
+ display: block;
+ width: 100%;
+ /*height: auto;*/
+}
+
+input[type="password"],
+input[type="email"],
+input[type="text"],
+input[type="submit"],
+input[type="select"],
+input[type="radio"],
+textarea,
+button {
+ -webkit-appearance: none;
+ -moz-appearance: none;
+}
+
+input {
+  border: 1px solid black;
+  margin: 5px;
+  margin-left: 0;
+  border-radius: 3px;
+  font-size: 12px;
+  line-height: 30px;
+  height: 30px;
+  padding-left: 10px;
+  background: rgb(33, 37, 43);
+  color: lightgrey;
+}
+
+input:focus {
+  border: 1px solid rgb(222, 108, 117);
+}

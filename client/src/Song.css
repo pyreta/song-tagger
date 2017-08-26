@@ -1,0 +1,37 @@
+.song:hover {
+  background: rgba(18, 20, 23, .3);
+  cursor: pointer;
+  /*transition: all 0.3s ease;*/
+}
+
+
+.tags {
+  font-size: 10px;
+  color: rgb(147, 157, 172);
+  padding-bottom: 5px;
+}
+
+.animated {
+  animation-duration: 0.15s;
+  animation-fill-mode: both;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInLeft {
+  animation-name: slideInLeft;
+}
+
+
+.edit-song {
+  background: rgba(18, 20, 23, .3);
+}
