@@ -64,7 +64,7 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id].to_i)
     @song.update(name: song_params[:name], tags: tags.compact)
 
-    render json: Song.all.to_json(include: [:tags])
+    render json: { response: @song.as_json(include: [:tags]) }
   end
 
   def destroy

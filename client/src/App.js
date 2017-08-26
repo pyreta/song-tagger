@@ -83,7 +83,7 @@ class App extends Component {
     this.setState({ songBeingEdited: null });
     axios
       .patch(`/songs/${id}`, { song: { name: songName, tags } })
-      .then(r => this.setState({ songs: r.data }))
+      .then(r => this.setState({ songs: {...this.state.songs, [id]: r.data.response} }))
       .catch(error => alert(`Server error: ${error.message}`));
   }
 
