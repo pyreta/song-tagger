@@ -13,7 +13,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      songs: [],
+      songs: {},
       songsToExport: {},
       moreSongs: true,
       songName: '',
@@ -32,7 +32,7 @@ class App extends Component {
     axios
       .get(`/songs?page=${page}&search=${search}`)
       .then(r => this.setState({
-        songs: JSON.parse(r.data.songs),
+        songs: JSON.parse(r.data.songs).reduce((accum, song) => ({...accum, [song.id]: song}), {}),
         lastLoadedPage: parseInt(r.data.page, 10),
         pageSize: parseInt(r.data.page_size, 10),
         totalRecords: r.data.total_songs
@@ -42,7 +42,13 @@ class App extends Component {
   deleteSong(id) {
     axios
       .delete(`/songs/${id}`, { song: { id } })
-      .then(r => this.setState({ songs: r.data }));
+      .then(r => this.setState({
+        songs: Object.values(this.state.songs).reduce((accum, song) =>
+          song.id === id ? accum : {...accum, [song.id]: song}, {}
+        ),
+        totalRecords: this.state.totalRecords - 1,
+
+      }));
   }
 
   songProps() {
@@ -65,7 +71,10 @@ class App extends Component {
       .post('/songs', { song: { name: songName, tags } })
       .then(r => {
         const { response, errors } = r.data;
-        response ? this.getSongs({}) : alert(errors.join(' '));
+        response ? this.setState({
+          songs: {...this.state.songs, [response.id]: response },
+          totalRecords: this.state.totalRecords + 1
+        }) : alert(errors.join(' '));
       })
       .catch(error => alert(`Server error: ${error.message}`));
   }
@@ -74,7 +83,7 @@ class App extends Component {
     this.setState({ songBeingEdited: null });
     axios
       .patch(`/songs/${id}`, { song: { name: songName, tags } })
-      .then(r => this.setState({ songs: r.data }))
+      .then(r => this.setState({ songs: {...this.state.songs, [id]: r.data.response} }))
       .catch(error => alert(`Server error: ${error.message}`));
   }
 
@@ -106,8 +115,7 @@ class App extends Component {
   }
 
   onDrop({ song }) {
-    const songIdx = this.state.songs.map(s => s.id).indexOf(parseInt(song, 10));
-    const newSong = this.state.songs[songIdx];
+    const newSong = this.state.songs[song];
     this.setState({
       songsToExport: {
         ...this.state.songsToExport,
@@ -118,8 +126,6 @@ class App extends Component {
 
   songsToExport() {
     return Object.values(this.state.songsToExport)
-    // return Object.keys(this.state.songsToExport)
-    //   .reduce((accum, id) => [...accum, this.state.songsToExport[id]], []);
   }
 
   updateSongTitle(val) {
@@ -132,6 +138,7 @@ class App extends Component {
 
   onSearchType(search) {
     this.setState({ page: 1, search });
+    if (search === '') this.getSongs({})
   }
 
   onSearchClick() {
@@ -173,10 +180,10 @@ class App extends Component {
         <br />
 
       <div style={{display: 'flex'}}>
-        <div style={{background: 'rgb(33, 37, 43)', color: 'rgb(152, 194, 121)', height: 'calc(100vh - 170px)', overflow: 'auto', flex: '100%', margin: '10px', border: '1px solid black'}}>
-          <SongList songs={this.state.songs} songProps={this.songProps()} />
+        <div className="song-list-container list-container">
+          <SongList songs={Object.values(this.state.songs)} songProps={this.songProps()} />
         </div>
-          <div style={{background: 'rgb(33, 37, 43)', color: 'rgb(208, 154, 102)', height: 'calc(100vh - 170px)', overflow: 'auto', flex: '100%', margin: '10px', marginLeft: '0', border: '1px solid black'}}>
+          <div className="export-list-container list-container">
             <ExportList
               songs={this.songsToExport()}
               onDrop={this.onDrop.bind(this)}
@@ -195,7 +202,7 @@ class App extends Component {
               />
           </div>
           <div style={{flex: '100%'}}>
-            <Button onButtonClick={this.exportCsv.bind(this)} disabled={!this.songsToExport().length} text="export"/>
+            <button onClick={this.exportCsv.bind(this)} disabled={!this.songsToExport().length}>Export CSV</button>
           </div>
         </div>
       </div>

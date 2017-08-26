@@ -1,24 +1,16 @@
-/*.App {
-  text-align: center;
+.list-container {
+  background: rgb(33, 37, 43);
+  height: calc(100vh - 170px);
+  overflow: auto;
+  flex: 100%;
+  margin: 10px;
+  border: 1px solid black;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.song-list-container {
+  color: rgb(152, 194, 121);
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.export-list-container {
+  color: rgb(208, 154, 102);
 }
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}*/

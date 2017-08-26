@@ -5,8 +5,8 @@ const Button = ({ onButtonClick, text, background = 'transparent' }) => (
   <div className="button" style={{
     background,
     cursor: 'pointer',
-    width: '48px',
-    height: '14px',
+    width: '50px',
+    height: '16px',
     textAlign: 'center',
     borderRadius: '2px',
     fontSize: '11px',

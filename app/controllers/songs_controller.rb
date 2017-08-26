@@ -64,7 +64,7 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id].to_i)
     @song.update(name: song_params[:name], tags: tags.compact)
 
-    render json: Song.all.to_json(include: [:tags])
+    render json: { response: @song.as_json(include: [:tags]) }
   end
 
   def destroy
@@ -72,7 +72,7 @@ class SongsController < ApplicationController
     @song.tags.each { |tag| Tag.delete(tag.id) if tag.songs.length <= 1 }
     Song.delete(params[:id].to_i)
 
-    render json: Song.all.to_json(include: [:tags])
+    render json: { total_songs: Song.all.length }
   end
 
   def song_params

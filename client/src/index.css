@@ -86,6 +86,7 @@ input {
   font-size: 12px;
   line-height: 30px;
   height: 30px;
+  line-height: 30px;
   padding-left: 10px;
   background: rgb(33, 37, 43);
   color: lightgrey;
@@ -93,4 +94,19 @@ input {
 
 input:focus {
   border: 1px solid rgb(222, 108, 117);
+}
+
+button {
+  height: 30px;
+  border: 1px solid rgb(222, 108, 117);
+  border-radius: 3px;
+  padding: 0 10px 0 10px;
+  color: rgb(222, 108, 117);
+  background: rgb(33, 37, 43);
+  font-size: 14px;
+}
+
+button:hover {
+  transform: scale(1.1);
+  transition: all 0.1s ease;
 }
