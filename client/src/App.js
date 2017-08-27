@@ -170,7 +170,7 @@ class App extends Component {
       pageDiv :
       pageDiv + 1
     return (
-      <div>
+      <div style={{display: 'flex', flexWrap: 'wrap'}}>
         <SongForm
           updateSongTitle={this.updateSongTitle.bind(this)}
           updateTags={this.updateTags.bind(this)}
@@ -179,7 +179,7 @@ class App extends Component {
       <Search onSearchType={this.onSearchType.bind(this)} onSearchClick={this.onSearchClick.bind(this)} />
         <br />
 
-      <div style={{display: 'flex'}}>
+      <div style={{display: 'flex', flex: '100%'}}>
         <div className="song-list-container list-container">
           <SongList songs={Object.values(this.state.songs)} songProps={this.songProps()} />
         </div>
@@ -193,7 +193,7 @@ class App extends Component {
         </div>
 
         <div style={{display: 'flex'}}>
-          <div style={{flex: '100%', paddingLeft: '10px', color: 'rgb(97, 174, 238)'}}>
+          <div style={{color: 'rgb(97, 174, 238)'}}>
             <PageCounter
               page={this.state.page}
               onPageUp={this.onPageUp.bind(this)}
@@ -201,8 +201,8 @@ class App extends Component {
               totalPages={totalPages}
               />
           </div>
-          <div style={{flex: '100%'}}>
-            <button onClick={this.exportCsv.bind(this)} disabled={!this.songsToExport().length}>Export CSV</button>
+          <div>
+            {!!this.songsToExport().length && <button onClick={this.exportCsv.bind(this)} disabled={!this.songsToExport().length}>Export CSV</button>}
           </div>
         </div>
       </div>
