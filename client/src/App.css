@@ -1,10 +1,11 @@
 .list-container {
   background: rgb(33, 37, 43);
-  height: calc(100vh - 170px);
+  height: calc(100vh - 110px);
   overflow: auto;
-  flex: 100%;
   margin: 10px;
-  border: 1px solid black;
+  margin-bottom: 0;
+  flex: 100%;
+  border: 1px solid #181a1f;
 }
 
 .song-list-container {
@@ -13,4 +14,5 @@
 
 .export-list-container {
   color: rgb(208, 154, 102);
+  margin-left: 0;
 }

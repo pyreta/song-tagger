@@ -34,23 +34,22 @@ class EditSong extends React.Component {
   render() {
     const { song, setToEdit, update } = this.props
     return (
-      <div className="edit-song">
+      <div className="edit-song" style={{padding: '10px'}}>
         <input
-          style={{ width: '300px'}}
+          style={{ width: '300px', marginLeft: 0}}
           value={this.state.songName}
           onChange={this.changeSongName.bind(this)}
           ref={(input) => { this.songNameInput = input; }}
         />
         <input
-          style={{display: 'block', width: '300px'}}
+          style={{display: 'block', width: '300px', marginLeft: 0}}
           value={this.state.tags}
           onChange={this.changeTags.bind(this)}
         />
-      <div style={{display: 'flex', paddingTop: '5px'}}>
+      <div style={{display: 'flex', paddingTop: '10px'}}>
         <Button onButtonClick={() => setToEdit(null)} text="Cancel"/>
-        <div style={{paddingLeft: '5px'}}>
-          <Button onButtonClick={() => update(song.id, this.state)} text="Update"/>
-        </div>
+        <div style={{width: '5px'}}></div>
+        <Button onButtonClick={() => update(song.id, this.state)} text="Update" />
       </div>
       </div>
     )
@@ -64,11 +63,9 @@ const ShowSong = ({song, buttonText = 'Delete', type, deleteSong, setToEdit=()=>
     <Button onButtonClick={() => deleteSong(song.id)} text={buttonText} color="rgb(222, 108, 117)" />
   </div>
 
-  // <button onClick={() => deleteSong(song.id)}>{buttonText}</button>
-
 const Song = props => {
   return (
-    <li style={{padding: '10px'}} className="slideInLeft animated song">
+    <li style={{padding: props.songBeingEdited === props.song.id ? 0 : '10px'}} className="slideInLeft animated song">
       {props.songBeingEdited === props.song.id ?
         <EditSong {...props} /> :
         <ShowSong {...props} />

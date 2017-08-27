@@ -1,10 +1,8 @@
 body {
   margin: 0;
-  padding: 10px;
   font-family: sans-serif;
   background-color: rgb(40, 44, 52);
-  /*color: rgb(97, 174, 238);*/
-  /*color: rgb(222, 108, 117);*/
+  display: flex;
   color: rgb(208, 154, 102);
 }
 
@@ -14,26 +12,6 @@ ul {
   margin: 0;
 }
 
-/*li {
-  padding-left: 1em;
-  text-indent: -.7em;
-}*/
-
-/*li::before {
-  content: "♫";
-  color: red;
-}*/
-
-/*html, body, section, article, h1, h2, p, a, input {
-  margin: 0;
-  border: 0;
-  padding: 0;
-  font: inherit;
-  text-align: inherit;
-  text-decoration: inherit;
-  color: inherit;
-  background: transparent;
-}*/
 html, header, nav, h1, a,
 ul, li, strong, main, button, i,
 section, img, div, h2, p, form,
@@ -50,9 +28,6 @@ span, article, footer, time, small, select {
  vertical-align: inherit;
  box-sizing: inherit;
  background: transparent;
- /*font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
-   Helvetica, Arial, "Lucida Grande", sans-serif;
- font-weight: 700;*/
  -webkit-font-smoothing: antialiased;
 }
 
@@ -79,34 +54,43 @@ button {
 }
 
 input {
-  border: 1px solid black;
-  margin: 5px;
-  margin-left: 0;
+  border: 1px solid #181a1f;
+  /*border: 1px solid black;*/
+  margin-top: 10px;
+  margin-left: 10px;
   border-radius: 3px;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 30px;
   height: 30px;
   line-height: 30px;
   padding-left: 10px;
   background: rgb(33, 37, 43);
-  color: lightgrey;
+  width: calc(33vw - 78px);
+  color: #9da5b4;
 }
 
 input:focus {
-  border: 1px solid rgb(222, 108, 117);
+  border: 1px solid rgb(152, 194, 121);
 }
 
 button {
   height: 30px;
-  border: 1px solid rgb(222, 108, 117);
+  border: 1px solid #181a1f;
   border-radius: 3px;
   padding: 0 10px 0 10px;
-  color: rgb(222, 108, 117);
-  background: rgb(33, 37, 43);
+  color: #9da5b4;
+  background-color: #353b45;
+  background-image: linear-gradient(#3a3f4b, #353b45);
+  margin-top: 10px;
+  margin-left: 10px;
   font-size: 14px;
 }
 
 button:hover {
   transform: scale(1.1);
   transition: all 0.1s ease;
+}
+
+.droppable-list {
+  height: calc(100vh - 110px)
 }
