@@ -1,24 +1,10 @@
-# README
+# Song Tagger
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A basic song title and tagging crud interface with drag-and-drop and export capabilities built with Ruby on Rails and React.
 
-Things you may want to cover:
+-----
 
-* Ruby version
+Features:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### drag-and-drop
+![image of progress-bar code](screenshots/dragNdrop.gif)
