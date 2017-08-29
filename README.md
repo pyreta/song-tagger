@@ -48,7 +48,7 @@ Double clicking on song item opens up edit mode allowing for editing of song tit
 ![image](screenshots/editSong.gif)
 
 ### Search by song title and/or tag name
-When search query is empty, all songs are automatically loaded.  Currently a brute force implementation.  Plenty of room for optimization.
+When search query is empty, all songs are automatically loaded.
 ![image](screenshots/search.gif)
 
 ### Responsive Design
@@ -56,4 +56,4 @@ When search query is empty, all songs are automatically loaded.  Currently a bru
 ![image](screenshots/responsive.gif)
 
 ### In the future
-Refactoring of css implementation to use `styled-components` instead of inline component styles mixed with stylesheets.  Optimization of search algorithm.
+Refactoring of css implementation to use `styled-components` instead of inline component styles mixed with stylesheets.
