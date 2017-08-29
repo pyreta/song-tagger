@@ -1,7 +1,7 @@
 import React from 'react';
 import { Draggable } from 'react-drag-and-drop';
+import Button from '../Button';
 import './Song.css';
-import Button from './Button';
 
 const tagString = song =>
   song.tags.map(tag => tag.name).join(', ');

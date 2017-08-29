@@ -56,4 +56,4 @@ When search query is empty, all songs are automatically loaded.  Currently a bru
 ![image](screenshots/responsive.gif)
 
 ### In the future
-Refactoring of components folder structure, and implement `styled-components` instead of inline component styles mixed with stylesheets.
+Refactoring of css implementation to use `styled-components` instead of inline component styles mixed with stylesheets.  Optimization of search algorithm.

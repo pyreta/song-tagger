@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import exportToCsv from './helpers/exportToCsv';
-import SongList from './SongList';
-import SongForm from './SongForm';
-import Search from './Search';
-import PageCounter from './PageCounter';
-import ExportList from './ExportList';
+import exportToCsv from '../../helpers/exportToCsv';
+import SongList from '../SongList';
+import SongForm from '../SongForm';
+import Search from '../Search';
+import PageCounter from '../PageCounter';
+import ExportList from '../ExportList';
 import './App.css';
 
 class App extends Component {

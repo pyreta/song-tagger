@@ -1,13 +1,6 @@
 import React from 'react';
 import './Button.css';
 
-// const Button = ({ onButtonClick, text, background = 'transparent' }) => (
-//   <button className="button" style={{
-//
-//   }} onClick={onButtonClick}><span style={{
-//   }}>{text}</span></button>
-// );
-
 const Button = ({ onButtonClick, text, background = 'transparent' }) => (
   <button className="button" style={{
     background,
