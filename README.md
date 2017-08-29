@@ -3,6 +3,23 @@
 A basic song title and tagging crud interface with drag-and-drop and export capabilities built with Ruby on Rails and React.
 
 -----
+### To run locally
+
+Install dependences:
+```bash
+$ bundle && cd client && npm i && cd ..
+```
+
+Create and seed database:
+```bash
+$ rake db:create && rake db:seed
+```
+
+Run local Rails and React server on `http://localhost:3000/`
+```bash
+$ rake start
+```
+-----
 
 
 ### Drag and drop into export list
