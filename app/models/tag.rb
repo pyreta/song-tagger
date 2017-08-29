@@ -3,6 +3,7 @@ class Tag < ApplicationRecord
   validate :no_special_characters
   has_many :taggings
   has_many :songs, through: :taggings
+  scope :includes_text, -> (name) { where("name like ?", "%#{name}%")}
 
   def no_special_characters
     special = '!@#$%^*()+=[]{};"><`~'

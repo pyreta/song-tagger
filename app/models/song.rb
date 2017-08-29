@@ -4,6 +4,7 @@ class Song < ApplicationRecord
   validate :at_least_one_tag, :no_special_characters
   has_many :taggings
   has_many :tags, through: :taggings
+  scope :includes_text, -> (name) { where("name like ?", "%#{name}%")}
 
   accepts_nested_attributes_for :tags, :taggings
 

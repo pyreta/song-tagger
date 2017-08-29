@@ -23,11 +23,10 @@ class SongsController < ApplicationController
   def index
     search = params[:search]
     page = params[:page]
+    @songs = Song.all
 
-    @songs = Song.all.select do |song|
-      song.name.downcase.include?(search.downcase) ||
-      tags_contain_search(song.tags, search) ||
-      search.length == 0
+    if search.length > 0
+      @songs = @songs.includes_text(search) + Tag.all.includes_text(search).map { |tag| tag.songs }.flatten.uniq
     end
 
     render json: {
