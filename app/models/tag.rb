@@ -7,7 +7,7 @@ class Tag < ApplicationRecord
   def no_special_characters
     special = '!@#$%^*()+=[]{};"><`~'
     regex = /[#{special.gsub(/./){|char| "\\#{char}"}}]/
-    if name.split(regex).length > 1
+    if name.split(regex)[0] != name
       errors.add(:tag, "Cannot contain special characters")
     end
   end
