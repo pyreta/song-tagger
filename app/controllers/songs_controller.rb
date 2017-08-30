@@ -63,7 +63,12 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id].to_i)
     @song.update(name: song_params[:name], tags: tags.compact)
 
-    render json: { response: @song.as_json(include: [:tags]) }
+    if @song.valid?
+      render json: { response: @song.as_json(include: [:tags]) }
+    else
+      puts @song.errors.full_messages
+      render json: { errors: @song.errors.full_messages }
+    end
   end
 
   def destroy
